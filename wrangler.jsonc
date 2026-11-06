@@ -1,0 +1,20 @@
+// Static site served by Cloudflare Workers static assets.
+// worker/index.js runs first and 301-redirects getsnaponveneers.com and http:// to
+// https://www.getsnaponveneers.com; everything else is served from ./out.
+// The build step exports the Next.js site into ./out and runs automatically
+// before `wrangler deploy`, so Cloudflare needs no build command.
+{
+  "name": "getsnaponveneers",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-06",
+  "build": {
+    "command": "npm run build"
+  },
+  "assets": {
+    "directory": "./out",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  }
+}

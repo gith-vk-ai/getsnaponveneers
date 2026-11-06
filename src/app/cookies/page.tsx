@@ -1,0 +1,60 @@
+import type { Metadata } from "next";
+import { InfoPage } from "@/components/InfoPage";
+import { site } from "@/config/site";
+
+export const metadata: Metadata = {
+  title: "Cookie Policy",
+  description: "How GetSnapOnVeneers uses cookies and similar technologies.",
+  alternates: { canonical: "/cookies/" },
+};
+
+export default function CookiesPage() {
+  return (
+    <InfoPage title="Cookie Policy" updated={site.legalUpdated}>
+      <p>
+        This Cookie Policy explains how GetSnapOnVeneers.com (&quot;GetSnapOnVeneers,&quot; &quot;we,&quot;
+        &quot;us&quot;) uses cookies and similar technologies such as browser storage and tracking
+        pixels.
+      </p>
+      <h2>Strictly necessary storage</h2>
+      <p>
+        Our quiz saves your answers in your browser&apos;s session storage so you can go back and
+        forth between questions and see your results. This data stays in your browser and is
+        cleared when you close the tab.
+      </p>
+      <h2>Analytics and advertising technologies</h2>
+      <p>We may use:</p>
+      <ul>
+        <li>
+          <strong>Google Analytics 4 / Google Tag Manager</strong> — to understand how visitors use
+          the site, for example how many people complete the quiz.
+        </li>
+        <li>
+          <strong>Advertising network tags (such as NewsBreak and Revcontent)</strong> — to measure
+          the performance of our ads on those networks.
+        </li>
+      </ul>
+      <p>
+        These tools may receive information such as pages viewed, quiz progress and answers, the
+        campaign that brought you here, and when you click through to an external website.
+      </p>
+      <h2>Affiliate tracking</h2>
+      <p>
+        When you click an affiliate link, the affiliate network and the destination website may set
+        their own cookies to attribute any resulting purchase to us. Those cookies are governed by
+        their policies.
+      </p>
+      <h2>Your choices</h2>
+      <p>
+        If your browser sends a Global Privacy Control (GPC) signal, we treat it as a request to opt
+        out and do not load our analytics or advertising tools. You can also block or delete cookies
+        through your browser, and opt out of interest-based ads via your Google ad settings and
+        the settings of the apps and websites where you see our ads.
+      </p>
+      <h2>Contact</h2>
+      <p>
+        Questions? Email <a href={`mailto:${site.contactEmail}`}>{site.contactEmail}</a>.
+      </p>
+    </InfoPage>
+  );
+}
